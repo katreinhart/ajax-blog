@@ -4,19 +4,34 @@ body {
 }
 
 .hero{
-  min-height: 75vh;
+  min-height: 25vh;
   padding-top: 65px;
 }
 
 .blog-post {
   background-color: #fff;
   padding: 5%;
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+.blog-post:last-of-type {
+  margin-bottom: 40px;
+}
+
+span.blog-post-links {
+  float: right;
+  padding-right: 10px;
+}
+
+.new-post-form {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3% 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
   body {
     background-attachment: fixed;
-    
   }
 }
