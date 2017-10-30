@@ -18,10 +18,22 @@ const createNewPost = (req, res, next) => {
   res.status(200).json(response)
 }
 
+const updatePost = (req, res, next) => {
+  const response = model.updatePost(req.params.id, req.body)
+  if (response.error) res.status(400).json(response)
+  res.status(200).json(response)
+}
+
+const deletePost = (req, res, next) => {
+  const response = model.deletePost(req.params.id)
+  if (response.error) res.status(400).json(response)
+  res.status(200).json(response)
+}
+
 module.exports = {
   getAllPosts,
   getOnePost,
   createNewPost,
-  // updatePost,
-  // deletePost
+  updatePost,
+  deletePost
 }

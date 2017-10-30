@@ -23,7 +23,7 @@ const createNewPost = (body) => {
   if (!content) errors.push('Content is required')
 
   if (errors.length > 0) {
-    return { error: { status: 400, message: 'There were errors', errors }}
+    return { error: { status: 400, message: 'There were errors', errors } }
   }
   const id = uuid()
   const newPost = { id, title, content }
@@ -33,10 +33,44 @@ const createNewPost = (body) => {
   return newPost
 }
 
+const updatePost = (id, body) => {
+  const posts = JSON.parse(fs.readFileSync(postFile, 'utf-8'))
+  const post = posts.find(item => item.id === id)
+  if (!post) return { error: { status: 404, message: 'post not found' } }
+
+  const { title, content } = body
+  const errors = []
+  if (!title) errors.push('Title is required')
+  if (!content) errors.push('Content is required')
+
+  if (errors.length > 0) {
+    return { error: { status: 400, message: 'There were errors', errors } }
+  }
+
+  post.title = title
+  post.content = content
+
+  fs.writeFileSync(postFile, JSON.stringify(posts))
+
+  return post
+}
+
+const deletePost = (id) => {
+  const posts = JSON.parse(fs.readFileSync(postFile, 'utf-8'))
+  const post = posts.find(item => item.id === id)
+  if (!post) return { error: { status: 404, message: 'post not found' } }
+  const index = posts.indexOf(post)
+
+  posts.splice(index, 1)
+  fs.writeFileSync(postFile, JSON.stringify(posts))
+
+  return post
+}
+
 module.exports = {
   getAllPosts,
   getOnePost,
   createNewPost,
-  // updatePost,
-  // deletePost
+  updatePost,
+  deletePost
 }

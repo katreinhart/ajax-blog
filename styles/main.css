@@ -1,14 +1,21 @@
 body {
-  background-color: #BADA55;
+  /* background-color: #BADA55; */
+  background-image: url('https://picsum.photos/2000/1000?image=368');
 }
 
 .hero{
   min-height: 75vh;
-  background-image: url('https://picsum.photos/2000/1000?image=368');
+  padding-top: 65px;
+}
+
+.blog-post {
+  background-color: #fff;
+  padding: 5%;
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .hero {
+  body {
     background-attachment: fixed;
     
   }
