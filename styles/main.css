@@ -1,3 +1,15 @@
 body {
   background-color: #BADA55;
 }
+
+.hero{
+  min-height: 75vh;
+  background-image: url('https://picsum.photos/2000/1000?image=368');
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background-attachment: fixed;
+    
+  }
+}

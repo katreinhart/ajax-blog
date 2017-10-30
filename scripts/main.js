@@ -1,1 +1,3 @@
-console.log('sanity check!');
+console.log('sanity check!')
+
+$('#blog-content').html('Hello world from jQuery!')
