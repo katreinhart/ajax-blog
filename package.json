@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node app.js & live-server",
-    "dev": "nodemon app.js & live-server"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
